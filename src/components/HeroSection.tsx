@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Download, Mail } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react';
 
 const stats = [
   { value: 30, suffix: '+', label: 'Happy Clients' },
-  { value: 4, suffix: '+', label: 'Years Experience' },
+  { value: 6, suffix: '+', label: 'Years Experience' },
   { value: 50, suffix: '+', label: 'Projects Completed' },
 ];
 
@@ -38,13 +39,6 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix: string }) =
 };
 
 const HeroSection = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -66,24 +60,32 @@ const HeroSection = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-slide-up">
-            Hi, I'm an{' '}
-            <span className="text-gradient glow-text">AI/ML Engineer</span>
+            Hi, I'm{' '}
+            <span className="text-gradient glow-text">Zeeshan Ahmed</span>
           </h1>
+          
+          <p className="text-xl md:text-2xl text-primary font-semibold mb-4 animate-slide-up" style={{ animationDelay: '0.05s' }}>
+            Senior AI/ML Engineer
+          </p>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Building intelligent solutions with 4+ years of experience in GenAI applications, 
+            Building intelligent solutions with 6+ years of experience in GenAI applications, 
             chatbots, voice assistants, and custom AI systems that transform businesses.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            <Button variant="hero" size="xl" onClick={() => scrollToSection('#projects')}>
-              View My Work
-              <ArrowDown className="w-5 h-5" />
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/projects">
+                View My Work
+                <ArrowDown className="w-5 h-5" />
+              </Link>
             </Button>
-            <Button variant="heroOutline" size="xl" onClick={() => scrollToSection('#contact')}>
-              <Mail className="w-5 h-5" />
-              Get In Touch
+            <Button variant="heroOutline" size="xl" asChild>
+              <Link to="/contact">
+                <Mail className="w-5 h-5" />
+                Get In Touch
+              </Link>
             </Button>
           </div>
 
@@ -101,12 +103,12 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <button
-          onClick={() => scrollToSection('#about')}
+        <Link
+          to="/about"
           className="w-10 h-16 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2 hover:border-primary transition-colors"
         >
           <div className="w-1.5 h-3 bg-primary rounded-full animate-bounce" />
-        </button>
+        </Link>
       </div>
     </section>
   );

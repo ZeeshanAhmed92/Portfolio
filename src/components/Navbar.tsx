@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Code2 } from 'lucide-react';
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Skills', href: '/skills' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,14 +25,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,13 +32,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <button
-          onClick={() => scrollToSection('#hero')}
+        <Link
+          to="/"
           className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-primary transition-colors"
         >
           <Code2 className="w-6 h-6 text-primary" />
-          <span className="text-gradient">AI Engineer</span>
-        </button>
+          <span className="text-gradient">Zeeshan Ahmed</span>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-1">
@@ -51,18 +46,19 @@ const Navbar = () => {
             <Button
               key={link.name}
               variant="nav"
-              onClick={() => scrollToSection(link.href)}
+              asChild
+              className={location.pathname === link.href ? 'text-primary' : ''}
             >
-              {link.name}
+              <Link to={link.href}>{link.name}</Link>
             </Button>
           ))}
           <Button
             variant="hero"
             size="sm"
             className="ml-4"
-            onClick={() => scrollToSection('#contact')}
+            asChild
           >
-            Hire Me
+            <Link to="/contact">Hire Me</Link>
           </Button>
         </div>
 
@@ -85,18 +81,20 @@ const Navbar = () => {
               <Button
                 key={link.name}
                 variant="ghost"
-                className="justify-start"
-                onClick={() => scrollToSection(link.href)}
+                className={`justify-start ${location.pathname === link.href ? 'text-primary' : ''}`}
+                asChild
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                {link.name}
+                <Link to={link.href}>{link.name}</Link>
               </Button>
             ))}
             <Button
               variant="hero"
               className="mt-2"
-              onClick={() => scrollToSection('#contact')}
+              asChild
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              Hire Me
+              <Link to="/contact">Hire Me</Link>
             </Button>
           </div>
         </div>
