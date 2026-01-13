@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+
 const skillCategories = [
   {
     title: 'Programming Languages',
@@ -11,10 +15,13 @@ const skillCategories = [
   {
     title: 'AI/ML Technologies',
     skills: [
-      { name: 'LLM Fine-tuning', level: 95 },
-      { name: 'TensorFlow/PyTorch', level: 90 },
-      { name: 'LangChain', level: 92 },
       { name: 'OpenAI API', level: 95 },
+      { name: 'Claude API', level: 92 },
+      { name: 'Google Gemini', level: 90 },
+      { name: 'CrewAI', level: 88 },
+      { name: 'n8n Automation', level: 85 },
+      { name: 'Google Cloud AI', level: 85 },
+      { name: 'Azure AI', level: 82 },
     ],
   },
   {
@@ -23,7 +30,7 @@ const skillCategories = [
       { name: 'MongoDB', level: 88 },
       { name: 'PostgreSQL', level: 85 },
       { name: 'Vector Databases', level: 90 },
-      { name: 'Redis', level: 80 },
+      { name: 'Docker', level: 85 },
     ],
   },
   {
@@ -32,7 +39,8 @@ const skillCategories = [
       { name: 'GenAI Applications', level: 95 },
       { name: 'Chatbot Development', level: 92 },
       { name: 'Voice Assistants', level: 88 },
-      { name: 'NLP/NLU', level: 90 },
+      { name: 'Transcriptions', level: 90 },
+      { name: 'API Creation (Flask/FastAPI)', level: 92 },
     ],
   },
 ];
@@ -84,6 +92,15 @@ const SkillsSection = () => {
                 ))}
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="hero" asChild>
+              <Link to="/skills">
+                View All Skills
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
