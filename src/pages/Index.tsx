@@ -1,22 +1,30 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import ServicesSection from '@/components/ServicesSection';
 import SkillsSection from '@/components/SkillsSection';
 import ExperienceSection from '@/components/ExperienceSection';
-import ProjectsSection from '@/components/ProjectsSection';
+import LatestProjectsSection from '@/components/LatestProjectsSection';
+import ClientReviewsSection from '@/components/ClientReviewsSection';
+import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import SocialSidebar from '@/components/SocialSidebar';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <SocialSidebar />
       <main>
         <HeroSection />
         <AboutSection />
+        <ServicesSection />
         <SkillsSection />
         <ExperienceSection />
-        <ProjectsSection />
+        <LatestProjectsSection />
+        <ClientReviewsSection />
+        <BlogSection />
         <ContactSection />
       </main>
       <Footer />

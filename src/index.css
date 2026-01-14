@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
 @layer base {
   :root {
     --background: 222 47% 6%;
