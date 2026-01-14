@@ -8,7 +8,8 @@ const latestProjects = [
     description: 'Multi-lingual customer support chatbot with 95% resolution rate using GPT-4 and RAG architecture.',
     tech: ['GPT-4', 'LangChain', 'FastAPI', 'PostgreSQL'],
     icon: Bot,
-    color: 'from-cyan-500 to-blue-500'
+    color: 'from-cyan-500 to-blue-500',
+    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop'
   },
   {
     title: 'Voice Assistant Platform',
@@ -16,7 +17,8 @@ const latestProjects = [
     description: 'Real-time voice assistant with custom wake word detection and multi-language support.',
     tech: ['Whisper', 'ElevenLabs', 'WebRTC', 'Python'],
     icon: Mic,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-purple-500 to-pink-500',
+    image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&h=400&fit=crop'
   },
   {
     title: 'Automated Report Generator',
@@ -24,7 +26,8 @@ const latestProjects = [
     description: 'AI-powered system generating custom Excel, CSV, and PDF reports from natural language queries.',
     tech: ['OpenAI', 'Pandas', 'ReportLab', 'FastAPI'],
     icon: FileText,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-green-500 to-emerald-500',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop'
   },
   {
     title: 'LLM Fine-tuning Pipeline',
@@ -32,7 +35,8 @@ const latestProjects = [
     description: 'Custom fine-tuning pipeline for domain-specific LLMs with automated evaluation and deployment.',
     tech: ['PyTorch', 'LoRA', 'Weights & Biases', 'Docker'],
     icon: Brain,
-    color: 'from-orange-500 to-red-500'
+    color: 'from-orange-500 to-red-500',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'
   }
 ];
 
@@ -64,18 +68,25 @@ const LatestProjectsSection = () => {
               key={index}
               className="group glass rounded-2xl overflow-hidden border-glow hover:border-primary/50 transition-all duration-300"
             >
-              <div className={`h-2 bg-gradient-to-r ${project.color}`} />
-              
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-                    <project.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-xs text-muted-foreground px-3 py-1 rounded-full bg-muted">
+              {/* Project Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                <div className="absolute top-4 right-4">
+                  <span className="text-xs text-primary-foreground px-3 py-1 rounded-full bg-primary/90">
                     {project.category}
                   </span>
                 </div>
-
+                <div className={`absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                  <project.icon className="w-6 h-6 text-white" />
+                </div>
+              </div>
+              
+              <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>

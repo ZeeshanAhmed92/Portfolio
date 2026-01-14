@@ -8,7 +8,7 @@ const blogPosts = [
     category: 'AI Development',
     date: 'Jan 10, 2025',
     readTime: '8 min read',
-    image: 'RAG'
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop'
   },
   {
     title: 'Fine-tuning LLMs: Best Practices and Common Pitfalls',
@@ -16,7 +16,7 @@ const blogPosts = [
     category: 'Machine Learning',
     date: 'Jan 5, 2025',
     readTime: '12 min read',
-    image: 'LLM'
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop'
   },
   {
     title: 'Voice AI in 2025: Trends and Technologies',
@@ -24,7 +24,7 @@ const blogPosts = [
     category: 'Voice AI',
     date: 'Dec 28, 2024',
     readTime: '6 min read',
-    image: 'VAI'
+    image: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&h=400&fit=crop'
   }
 ];
 
@@ -44,7 +44,7 @@ const BlogSection = () => {
             </h2>
           </div>
           <Link
-            to="/blog"
+            to="/articles"
             className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all mt-4 md:mt-0"
           >
             View All Posts
@@ -58,9 +58,14 @@ const BlogSection = () => {
               key={index}
               className="group glass rounded-2xl overflow-hidden border-glow hover:border-primary/50 transition-all duration-300 hover:-translate-y-2"
             >
-              {/* Image placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <span className="text-4xl font-bold text-primary/30">{post.image}</span>
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium">
                     <Tag className="w-3 h-3" />
@@ -90,7 +95,7 @@ const BlogSection = () => {
                 </p>
 
                 <Link
-                  to="/blog"
+                  to="/articles"
                   className="inline-flex items-center gap-2 text-sm text-primary hover:gap-3 transition-all"
                 >
                   Read More
