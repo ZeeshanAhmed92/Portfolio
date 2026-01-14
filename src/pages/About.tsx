@@ -43,14 +43,25 @@ const About = () => {
 
             {/* Main Content */}
             <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              {/* Image/Visual */}
+              {/* Image/Visual - Your Photo Goes Here */}
               <div className="relative">
-                <div className="aspect-square rounded-3xl glass border-glow overflow-hidden flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <Sparkles className="w-20 h-20 text-primary mx-auto mb-4" />
+                <div className="aspect-square rounded-3xl glass border-glow overflow-hidden">
+                  {/* Replace this placeholder with your actual photo */}
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex flex-col items-center justify-center p-8">
+                    <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center mb-6 border-4 border-primary/20">
+                      <Sparkles className="w-20 h-20 text-primary" />
+                    </div>
                     <h2 className="text-3xl font-bold text-gradient mb-2">Zeeshan Ahmed</h2>
-                    <p className="text-muted-foreground">Senior AI Engineer</p>
+                    <p className="text-muted-foreground text-lg">Senior AI Engineer</p>
+                    <p className="text-sm text-primary mt-2">Pakistan</p>
                   </div>
+                  {/* To add your photo, replace the above div with:
+                  <img 
+                    src="/your-photo.jpg" 
+                    alt="Zeeshan Ahmed" 
+                    className="w-full h-full object-cover"
+                  />
+                  */}
                 </div>
                 <div className="absolute -z-10 top-4 left-4 right-4 bottom-4 bg-primary/20 rounded-3xl blur-2xl" />
               </div>

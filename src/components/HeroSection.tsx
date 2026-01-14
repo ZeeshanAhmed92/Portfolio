@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Mail } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const stats = [
   { value: 30, suffix: '+', label: 'Happy Clients' },
@@ -78,13 +78,13 @@ const HeroSection = () => {
             <Button variant="hero" size="xl" asChild>
               <Link to="/projects">
                 View My Work
-                <ArrowDown className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/contact">
-                <Mail className="w-5 h-5" />
-                Get In Touch
+              <Link to="/services">
+                My Services
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
           </div>
@@ -101,15 +101,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <Link
-          to="/about"
-          className="w-10 h-16 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2 hover:border-primary transition-colors"
-        >
-          <div className="w-1.5 h-3 bg-primary rounded-full animate-bounce" />
-        </Link>
-      </div>
     </section>
   );
 };
