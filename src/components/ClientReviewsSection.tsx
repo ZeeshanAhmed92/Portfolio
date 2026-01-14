@@ -1,196 +1,105 @@
-// import { useState, useEffect } from 'react';
-// import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react';
-// import { Button } from '@/components/ui/button';
-
-// const reviews = [
-//   {
-//     name: 'Sarah Johnson',
-//     role: 'CTO, TechVentures Inc.',
-//     content: 'Zeeshan delivered an exceptional AI chatbot that transformed our customer service. His expertise in NLP and attention to detail exceeded our expectations.',
-//     rating: 5,
-//     image: 'SJ'
-//   },
-//   {
-//     name: 'Michael Chen',
-//     role: 'Founder, DataFlow AI',
-//     content: 'Working with Zeeshan on our voice assistant project was a game-changer. His deep knowledge of speech recognition and AI integration is remarkable.',
-//     rating: 5,
-//     image: 'MC'
-//   },
-//   {
-//     name: 'Emily Rodriguez',
-//     role: 'Product Manager, InnovateTech',
-//     content: 'The custom AI reporting system Zeeshan built saved us countless hours. His ability to understand complex requirements and deliver elegant solutions is impressive.',
-//     rating: 5,
-//     image: 'ER'
-//   },
-//   {
-//     name: 'David Kim',
-//     role: 'CEO, SmartAnalytics',
-//     content: 'Zeeshan\'s work on our commercial ad detection system was outstanding. He delivered on time and the accuracy exceeded industry standards.',
-//     rating: 5,
-//     image: 'DK'
-//   },
-//   {
-//     name: 'Lisa Thompson',
-//     role: 'Director, HealthAI Solutions',
-//     content: 'The LLM fine-tuning project Zeeshan completed for us revolutionized our medical documentation process. Highly recommend his services!',
-//     rating: 5,
-//     image: 'LT'
-//   }
-// ];
-
-// const ClientReviewsSection = () => {
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
-//   useEffect(() => {
-//     if (!isAutoPlaying) return;
-    
-//     const timer = setInterval(() => {
-//       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-//     }, 5000);
-
-//     return () => clearInterval(timer);
-//   }, [isAutoPlaying]);
-
-//   const goToPrevious = () => {
-//     setIsAutoPlaying(false);
-//     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-//   };
-
-//   const goToNext = () => {
-//     setIsAutoPlaying(false);
-//     setCurrentIndex((prev) => (prev + 1) % reviews.length);
-//   };
-
-//   return (
-//     <section id="reviews" className="py-20 relative overflow-hidden">
-//       <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
-      
-//       <div className="container mx-auto px-6 relative z-10">
-//         <div className="text-center mb-16">
-//           <span className="inline-block px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-4">
-//             Client Reviews
-//           </span>
-//           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-//             What My <span className="text-gradient">Clients Say</span>
-//           </h2>
-//           <p className="text-muted-foreground max-w-2xl mx-auto">
-//             Trusted by 30+ clients worldwide for delivering exceptional AI solutions
-//           </p>
-//         </div>
-
-//         <div className="max-w-4xl mx-auto">
-//           <div className="relative">
-//             {/* Review Card */}
-//             <div className="glass rounded-3xl p-8 md:p-12 border-glow relative overflow-hidden">
-//               <Quote className="absolute top-6 left-6 w-12 h-12 text-primary/20" />
-              
-//               <div className="relative z-10">
-//                 <div className="flex items-center gap-1 mb-6">
-//                   {[...Array(reviews[currentIndex].rating)].map((_, i) => (
-//                     <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-//                   ))}
-//                 </div>
-
-//                 <p className="text-lg md:text-xl text-foreground/90 mb-8 leading-relaxed">
-//                   "{reviews[currentIndex].content}"
-//                 </p>
-
-//                 <div className="flex items-center gap-4">
-//                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center text-primary-foreground font-bold text-lg">
-//                     {reviews[currentIndex].image}
-//                   </div>
-//                   <div>
-//                     <h4 className="font-semibold text-foreground">{reviews[currentIndex].name}</h4>
-//                     <p className="text-sm text-muted-foreground">{reviews[currentIndex].role}</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Navigation Buttons */}
-//             <div className="flex items-center justify-center gap-4 mt-8">
-//               <Button
-//                 variant="outline"
-//                 size="icon"
-//                 onClick={goToPrevious}
-//                 className="rounded-full border-primary/30 hover:bg-primary/10"
-//               >
-//                 <ChevronLeft className="w-5 h-5" />
-//               </Button>
-
-//               <div className="flex items-center gap-2">
-//                 {reviews.map((_, index) => (
-//                   <button
-//                     key={index}
-//                     onClick={() => {
-//                       setIsAutoPlaying(false);
-//                       setCurrentIndex(index);
-//                     }}
-//                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
-//                       index === currentIndex
-//                         ? 'w-8 bg-primary'
-//                         : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-//                     }`}
-//                   />
-//                 ))}
-//               </div>
-
-//               <Button
-//                 variant="outline"
-//                 size="icon"
-//                 onClick={goToNext}
-//                 className="rounded-full border-primary/30 hover:bg-primary/10"
-//               >
-//                 <ChevronRight className="w-5 h-5" />
-//               </Button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ClientReviewsSection;
-
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle, ShieldCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Quote, Star, CheckCircle, ShieldCheck, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import Flag from 'react-world-flags';
 
 const reviews = [
   {
-    name: 'Sarah Johnson',
-    role: 'CTO, TechVentures Inc.',
-    content: 'Zeeshan delivered an exceptional AI chatbot that transformed our customer service. His expertise in NLP and attention to detail exceeded our expectations.',
+    name: 'Bijen Upadhyay',
+    countryName: 'Nepal',
+    countryCode: 'NP', // Use standard ISO codes
+    content: 'Zeeshan is a professional expert in AI. He tutored me on complex concepts with immense clarity, ensuring I grasped both theory and practical application. His dedication went beyond lectures—providing coding assistance at all hours. Truly a productive and insightful mentorship.',
     rating: 5,
-    initials: 'SJ',
-    project: 'Enterprise RAG System'
+    initials: 'BP',
+    project: 'AI Mentorship & Practical Engineering'
   },
   {
-    name: 'Michael Chen',
-    role: 'Founder, DataFlow AI',
-    content: 'Working with Zeeshan on our voice assistant project was a game-changer. His deep knowledge of speech recognition and AI integration is remarkable.',
+    name: 'Rituk Sharma',
+    countryName: 'India',
+    countryCode: 'IN', // Use standard ISO codes
+    content: 'Delivered exactly what we needed—on time and with meticulous attention to detail. Zeeshan proactively suggested improvements that significantly enhanced the final assistant. His communication and smart problem-solving make him a top-tier choice for any IT project.',
     rating: 5,
-    initials: 'MC',
-    project: 'Voice AI Integration'
+    initials: 'RS',
+    project: 'Multimodal AI Restaurant Operations'
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Product Manager, InnovateTech',
-    content: 'The custom AI reporting system Zeeshan built saved us countless hours. His ability to understand complex requirements and deliver elegant solutions is impressive.',
+    name: 'Black Mozarella',
+    countryName: 'United Kingdom',
+    countryCode: 'GB', // Use standard ISO codes
+    content: 'An outstanding experience. Zeeshans technical expertise in AI security made the entire process seamless. He delivered a top-quality solution ahead of schedule and provided valuable insights that improved our final results. He is the most reliable AI engineer I’ve worked with.',
     rating: 5,
-    initials: 'ER',
-    project: 'Document Intelligence'
+    initials: 'BM',
+    project: 'AI Model Data Security & Privacy'
   },
+  {
+    name: 'Karim Jivani',
+    countryName: 'Bangladesh',
+    countryCode: 'BD', // Use standard ISO codes
+    content: 'Zeeshan brought a deep understanding of AI to the project. His attention to detail and dedication moved the needle for us. He went above and beyond the initial scope—I would happily collaborate with him again!',
+    rating: 5,
+    initials: 'KJ',
+    project: 'Audio Transcription & Automated Reporting'
+  },
+  {
+    name: 'Chaytanya Kumar',
+    countryName: 'United States',
+    countryCode: 'US', // Use standard ISO codes
+    content: 'Zeeshan exceeded expectations with timely delivery and proactive communication. He explained core model choices with impressive fluency, leaving no stone unturned. Highly recommended for anyone seeking high-impact projects in Data Science & ML! 👍',
+    rating: 5,
+    initials: 'CK',
+    project: 'Multimodal PDF RAG Application'
+  },
+  {
+    name: 'Duane Donelly',
+    countryName: 'South Africa',
+    countryCode: 'ZA', // Use standard ISO codes
+    content: 'Working with Zeeshan was an absolute pleasure. He demonstrated a deep understanding of what was required and brought a level of professionalism and technical skill that truly impressed me. Not only did he deliver a high-quality chatbot solution, but he also completed the project ahead of schedule. Communication throughout was clear, prompt, and solution-focused. He took initiative, anticipated potential challenges, and offered smart suggestions that improved the final outcome. He worked with speed without ever compromising quality.',
+    rating: 5,
+    initials: 'DD',
+    project: 'Intent-Driven AI Routing Architecture'
+  },
+  {
+    name: 'Ahmed',
+    countryName: 'Egypt',
+    countryCode: 'EG', // Use standard ISO codes
+    content: 'It was nice to work with him, good communication, work was beyond expectations, gave more revisions than mentioned and give a quick response. Stringly recommend him',
+    rating: 5,
+    initials: 'A',
+    project: 'Implementing Custom ML Algorithms and Tuning LLM on Data'
+  },
+  {
+    name: 'Andre Arkham',
+    countryName: 'Germany',
+    countryCode: 'DE', // Use standard ISO codes
+    content: 'So far the most polite and proactive service I experienced. So much attention to detail. Exceptionally forthcoming and understanding. Provides a lot of valuable information. Very recommendable.',
+    rating: 5,
+    initials: 'AA',
+    project: 'Performing Text Classification and Topic Modelling'
+  },
+  {
+    name: 'Iqra Noor',
+    countryName: 'Pakistan',
+    countryCode: 'PK', // Use standard ISO codes
+    content: 'The task was well-executed, and the results are promising. Thank you for your understanding and patience.',
+    rating: 5,
+    initials: 'IN',
+    project: 'Text Classification on Urdu Memes Data Using ML Algorithms and Transformer'
+  },
+  {
+    name: 'Aris Beleris',
+    countryName: 'Greece',
+    countryCode: 'GR',
+    content: 'Very good cooperation, professional work! I recommend him for sure.',
+    rating: 5,
+    initials: 'AB',
+    project: 'HDFS Logs Classification System'
+  }
 ];
 
 const ClientReviewsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 for left, 1 for right
+  const [direction, setDirection] = useState(0); 
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
@@ -198,24 +107,9 @@ const ClientReviewsSection = () => {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % reviews.length);
-    }, 6000);
+    }, 8000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
-
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 100 : -100,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? 100 : -100,
-      opacity: 0,
-    }),
-  };
 
   const handleStep = (newDirection: number) => {
     setIsAutoPlaying(false);
@@ -228,74 +122,84 @@ const ClientReviewsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-32 relative overflow-hidden">
-      {/* Background Polish */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent opacity-70" />
+    <section id="reviews" className="py-32 relative overflow-hidden bg-background">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50 pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[10px] font-bold uppercase tracking-widest mb-4">
-            <ShieldCheck className="w-3 h-3" /> 100% Client Satisfaction
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+            <ShieldCheck className="w-3.5 h-3.5" /> Global Partner Network
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Trusted by <span className="text-gradient">Industry Leaders</span>
+          <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">
+            Trusted <span className="text-gradient">Worldwide</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl">
-            Real feedback from partners who have integrated my AI solutions into their core production workflows.
-          </p>
         </div>
 
-        <div className="max-w-5xl mx-auto relative px-4">
-          <div className="relative min-h-[400px] flex items-center justify-center">
+        <div className="max-w-6xl mx-auto relative">
+          <div className="relative min-h-[550px] md:min-h-[480px] flex items-center justify-center">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
                 key={currentIndex}
                 custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: "circOut" }}
+                initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction < 0 ? 50 : -50 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="absolute w-full"
               >
-                <div className="glass rounded-[2rem] p-8 md:p-16 border-glow shadow-2xl relative overflow-hidden">
-                  <Quote className="absolute -top-4 -left-4 w-32 h-32 text-primary/5 -rotate-12 pointer-events-none" />
+                <div className="glass rounded-[3rem] p-8 md:p-16 border border-white/5 bg-gradient-to-br from-white/[0.03] to-transparent relative overflow-hidden shadow-2xl">
+                  <Quote className="absolute -top-6 -right-6 w-48 h-48 text-primary/[0.03] rotate-12 pointer-events-none" />
                   
-                  <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-10">
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <div className="hidden sm:flex items-center gap-2 text-[10px] font-mono font-bold text-muted-foreground uppercase tracking-tighter">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
-                        Verified Project: {reviews[currentIndex].project}
-                      </div>
+                  <div className="grid lg:grid-cols-12 gap-12 relative z-10 items-center">
+                    {/* Left Side: Identity */}
+                    <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
+                        <div className="relative mb-6">
+                            <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-tr from-primary to-blue-600 flex items-center justify-center text-white font-bold text-3xl shadow-xl">
+                                {reviews[currentIndex].initials}
+                            </div>
+                            <div className="absolute -bottom-2 -right-2 bg-background border border-white/10 p-2 rounded-xl shadow-xl">
+                                <CheckCircle className="w-5 h-5 text-emerald-500" />
+                            </div>
+                        </div>
+                        
+                        <h4 className="text-2xl font-bold text-foreground mb-1">
+                          {reviews[currentIndex].name}
+                        </h4>
+
+                        {/* Fiverr Style Flag + Full Country Name */}
+                        <div className="flex items-center gap-2 text-muted-foreground mb-6">
+                           <div className="w-5 shadow-sm overflow-hidden rounded-sm flex items-center">
+                              <Flag code={reviews[currentIndex].countryCode} />
+                           </div>
+                           <span className="text-sm font-medium tracking-wide text-gray-400">{reviews[currentIndex].countryName}</span>
+                        </div>
+                        
+                        <div className="flex items-center gap-1 mb-8">
+                            {[...Array(5)].map((_, i) => (
+                                <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+                            ))}
+                            <span className="ml-2 text-xs font-bold text-yellow-500">5.0 RATING</span>
+                        </div>
+                        
+                        <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/5 w-full">
+                            <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-3 flex items-center gap-2">
+                                <Terminal className="w-3.5 h-3.5" /> Project Domain
+                            </p>
+                            <p className="text-sm font-semibold leading-relaxed text-foreground/90">{reviews[currentIndex].project}</p>
+                        </div>
                     </div>
 
-                    <blockquote className="text-2xl md:text-3xl font-medium text-foreground leading-tight mb-12 italic">
-                      "{reviews[currentIndex].content}"
-                    </blockquote>
-
-                    <div className="flex items-center justify-between border-t border-white/5 pt-8">
-                      <div className="flex items-center gap-5">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary via-primary/80 to-blue-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">
-                          {reviews[currentIndex].initials}
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-bold text-foreground">
-                            {reviews[currentIndex].name}
-                          </h4>
-                          <p className="text-sm text-primary font-medium tracking-wide">
-                            {reviews[currentIndex].role}
-                          </p>
-                        </div>
+                    {/* Right Side: Content */}
+                    <div className="lg:col-span-7">
+                      <div className="mb-6 opacity-20">
+                        <Quote className="w-12 h-12 text-primary" />
                       </div>
-                      
-                      {/* Placeholder for Client Company Logo */}
-                      <div className="hidden md:block opacity-20 grayscale brightness-200">
-                        <div className="h-8 w-24 bg-white/50 rounded animate-pulse" />
+                      <blockquote className="text-xl md:text-2xl font-light text-foreground/90 leading-relaxed italic">
+                        "{reviews[currentIndex].content}"
+                      </blockquote>
+                      <div className="mt-10 flex items-center gap-4 opacity-30">
+                         <div className="h-px w-12 bg-primary" />
+                         <span className="text-[10px] font-bold tracking-[0.4em] uppercase">Verified Client</span>
                       </div>
                     </div>
                   </div>
@@ -304,28 +208,18 @@ const ClientReviewsSection = () => {
             </AnimatePresence>
           </div>
 
-          {/* Professional Navigation Controls */}
-          <div className="flex flex-col sm:flex-row items-center justify-between mt-12 gap-8">
-             <div className="flex gap-3">
-               <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => handleStep(-1)}
-                  className="w-12 h-12 rounded-2xl border-white/10 glass hover:border-primary/50 transition-all group"
-                >
+          {/* Controls */}
+          <div className="flex flex-col sm:flex-row items-center justify-between mt-16 gap-8">
+              <div className="flex gap-4">
+                <Button variant="outline" size="icon" onClick={() => handleStep(-1)} className="w-14 h-14 rounded-2xl border-white/10 bg-white/5 hover:bg-primary transition-all group">
                   <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
                 </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => handleStep(1)}
-                  className="w-12 h-12 rounded-2xl border-white/10 glass hover:border-primary/50 transition-all group"
-                >
+                <Button variant="outline" size="icon" onClick={() => handleStep(1)} className="w-14 h-14 rounded-2xl border-white/10 bg-white/5 hover:bg-primary transition-all group">
                   <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </Button>
-             </div>
+              </div>
 
-             <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 {reviews.map((_, index) => (
                   <button
                     key={index}
@@ -335,13 +229,11 @@ const ClientReviewsSection = () => {
                       setCurrentIndex(index);
                     }}
                     className={`h-1.5 rounded-full transition-all duration-500 ${
-                      index === currentIndex
-                        ? 'w-12 bg-primary'
-                        : 'w-3 bg-white/10 hover:bg-white/20'
+                      index === currentIndex ? 'w-12 bg-primary' : 'w-3 bg-white/10'
                     }`}
                   />
                 ))}
-             </div>
+              </div>
           </div>
         </div>
       </div>

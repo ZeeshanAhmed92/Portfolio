@@ -3,19 +3,19 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 const socialLinks = [
   {
     icon: Github,
-    href: 'https://github.com/zeeshanahmed',
+    href: 'https://github.com/ZeeshanAhmed92',
     label: 'GitHub',
     delay: '0s'
   },
   {
     icon: Linkedin,
-    href: 'https://linkedin.com/in/zeeshanahmed',
+    href: 'https://linkedin.com/in/zeeshanahmed2015',
     label: 'LinkedIn',
     delay: '0.1s'
   },
   {
     icon: Mail,
-    href: 'mailto:zeeshan@example.com',
+    href: 'mailto:zeeshan.ahmed1179@gmail.com',
     label: 'Email',
     delay: '0.2s'
   }
