@@ -74,7 +74,7 @@ const About = () => {
                   <div className="absolute inset-4 rounded-full glass border-glow overflow-hidden z-10 p-2 shadow-2xl">
                     <div className="w-full h-full rounded-full overflow-hidden bg-muted">
                       <img 
-                        src="1725453430802.jpg?w=800&h=800&fit=crop" 
+                        src="/Portfolio/Profile_image.jpg" 
                         alt="Zeeshan Ahmed" 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out" 
                       />
