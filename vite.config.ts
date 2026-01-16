@@ -28,7 +28,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/ai-portfolio-showcase/", // 💡 Add this for GitHub Pages
+  base: "/Portfolio/", // 💡 Add this for GitHub Pages
   server: {
     host: "::",
     port: 8080,
